@@ -11,14 +11,46 @@
 |
 */
 
+
+
+// ADMIN
+
 Route::get('/admin', function () {
     return view('admin');
 });
+
+
+Route::get('/admin/login',['as' => 'admin.login', function(){
+    return view('admin.login.index');
+}]);
+
+
+Route::post('admin/login',['as' => 'admin.login', 'uses' => 'Admin\AdminController@login']);
+
+
+
+// ESCRITA NET
 
 Route::get('/escritanet', function () {
     return view('escritanet');
 });
 
+
+Route::get('/escritanet/login',['as' => 'escritanet.login', function(){
+    return view('escritanet.login.index');
+}]);
+
+Route::get('/escritanet/',['as' => 'escritanet.principal', function(){
+    return view('escritanet.principal.index');
+}]);
+
+
+
+Route::post('escritanet/login',['as' => 'escritanet.login', 'uses' => 'Admin\UsuarioController@login']);
+
+
 Route::get('/', function () {
     return view('site');
 });
+
+Route::get('/home', 'HomeController@index');
