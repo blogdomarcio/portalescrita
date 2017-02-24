@@ -11,6 +11,14 @@
 |
 */
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
+Route::get('/escritanet', function () {
+    return view('escritanet');
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('site');
 });
